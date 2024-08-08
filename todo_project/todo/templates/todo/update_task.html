@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Update Task</title>
+</head>
+<body>
+    <h1>Update Task</h1>
+    <form method="post">
+        {% csrf_token %}
+        <input type="text" name="title" value="{{ task.title }}">
+        <input type="checkbox" name="completed" {% if task.completed %}checked{% endif %}>
+        <button type="submit">Update Task</button>
+    </form>
+    <a href="{% url 'index' %}">Back to To-Do List</a>
+</body>
+</html>
